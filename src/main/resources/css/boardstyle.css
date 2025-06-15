@@ -1,0 +1,19 @@
+.blackbutton {
+    -fx-background-color: #000000;
+    -fx-cursor: hand;
+    -fx-pref-width: 80px;
+    -fx-pref-height: 80px;
+    -fx-border-color: #000000;
+}
+.whitebutton {
+    -fx-background-color: #EFEFEF;
+    -fx-cursor: hand;
+    -fx-pref-width: 80px;
+    -fx-pref-height: 80px;
+    -fx-border-color: #F0F0F0;
+}
+
+.toggle-button:selected {
+    -fx-border-color: #999999;
+    -fx-border-width: 3px;
+}
