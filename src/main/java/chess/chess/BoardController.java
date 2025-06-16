@@ -14,12 +14,14 @@ import java.util.ResourceBundle;
 public class BoardController implements Initializable {
     @FXML public Pane mainPane;
 
-    MyTeam myTeam = new  MyTeam();
-
     @Override
     public void initialize(URL url, ResourceBundle RsBnd)  {
         Board chessBoard = new Board(mainPane);
 
         BWPos[][] boardMatrix = chessBoard.getBoardMatrix();
+
+        MyTeam myTeam = new  MyTeam("black");
+        myTeam.resetTeam();
+        myTeam.spanTeam("white");
     }
 }
