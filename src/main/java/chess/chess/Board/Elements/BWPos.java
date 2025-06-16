@@ -48,6 +48,15 @@ public class BWPos extends ToggleButton {
             this.getPiece().setPos(this.xPos, this.yPos);
             this.setSelected(false);
         }
+        else if (!(this.getPiece() instanceof Garbage) && this.onFoused) {
+            BWPos now = Board.nowFocused;
+            this.setPiece(now.getPiece());
+            now.setPiece(now.garbage);
+            now.setSelected(false);
+            this.getPiece().setPos(this.xPos, this.yPos);
+            this.setSelected(false);
+        }
+
         else {
             System.out.println();
             BWPos now = Board.nowFocused;
