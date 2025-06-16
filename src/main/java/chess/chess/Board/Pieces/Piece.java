@@ -9,6 +9,7 @@ public abstract class Piece {
     protected BWPos[][] BM = Board.boardMatrix;
     protected int posX, posY;
     protected String TeamColor;
+    public String Team;
     protected ArrayList<int[]> result = new ArrayList<int[]>();
 
     public Piece setPos(int xPos, int yPos) {
@@ -25,6 +26,8 @@ public abstract class Piece {
     }
 
     public String getTeamColor() {return this.TeamColor;}
+
+    public Piece setTeam(String team) {this.Team = team; return this;}
 
     public abstract ArrayList<int[]> getAbleToMove();
 }

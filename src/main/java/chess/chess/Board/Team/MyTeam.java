@@ -9,7 +9,7 @@ public class MyTeam extends BWTeam {
 
     public void spanTeam(String teamColor) {
         for (int i = 0; i < 8; i++) {
-            BM[i][6].setPiece(new Pawn().setPos(i, 6, teamColor));
+            BM[i][6].setPiece(new Pawn().setPos(i, 6, teamColor).setTeam("my"));
             this.teamPieces.setPawn(BM[i][6]);
         }
         this.teamPieces.setRook(BM[0][7].setPiece(new Rook().setPos(0, 7, teamColor)));
