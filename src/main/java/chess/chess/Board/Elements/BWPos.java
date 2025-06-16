@@ -30,29 +30,15 @@ public class BWPos extends ToggleButton {
 
     public BWPos() { }
 
-    public void notGarbageFocused() {
-        this.setStyle("-fx-border-color: red; -fx-border-width: 3;");
-        this.onFoused = true;
-    }
-
     public void onSelected() {
         if(!(this.piece instanceof Garbage)){
             Board.nowFocused.setSelected(false);
             Board.nowFocused = this;
             for (int[] newone : this.piece.getAbleToMove()) {
-                BWPos target = Board.boardMatrix[newone[0]][newone[1]];
-                if (target.getPiece() instanceof Garbage) {
-                    target.onFocus();
-                } else {
-                    target.notGarbageFocused();
-                }
                 if (Board.boardMatrix[newone[0]][newone[1]].getPiece() instanceof Garbage) {
                     Board.boardMatrix[newone[0]][newone[1]].onFocus();
-                } else {
-                    Board.boardMatrix[newone[0]][newone[1]].notGarbageFocused();
                 }
             }
-
         }
         else if (this.onFoused) {
             BWPos now = Board.nowFocused;
@@ -62,16 +48,9 @@ public class BWPos extends ToggleButton {
             this.getPiece().setPos(this.xPos, this.yPos);
             this.setSelected(false);
         }
+        else if () {
 
-        else if (!(this.getPiece() instanceof Garbage) && this.onFoused) {
-            BWPos now = Board.nowFocused;
-            this.setPiece(now.getPiece());
-            now.setPiece(now.garbage);
-            now.setSelected(false);
-            this.getPiece().setPos(this.xPos, this.yPos);
-            this.setSelected(false);
         }
-
         else {
             System.out.println();
             BWPos now = Board.nowFocused;
@@ -100,7 +79,6 @@ public class BWPos extends ToggleButton {
 
     public void deFocus() {
         this.setGraphic(null);
-        this.setStyle("");
         this.onFoused = false;
     }
 
