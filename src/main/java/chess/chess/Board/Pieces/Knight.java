@@ -5,18 +5,19 @@ import java.util.ArrayList;
 public class Knight extends Piece {
 
     public ArrayList<int[]> getAbleToMove() {
-        result = new ArrayList<int[]>();
-        result.add(new int[]{this.posX + 2, this.posY + 1});
-        result.add(new int[]{this.posX + 2, this.posY - 1});
-        result.add(new int[]{this.posX + 1, this.posY + 2});
-        result.add(new int[]{this.posX - 1, this.posY + 2});
-        result.add(new int[]{this.posX - 2, this.posY + 1});
-        result.add(new int[]{this.posX - 2, this.posY - 1});
-        result.add(new int[]{this.posX + 1, this.posY - 2});
-        result.add(new int[]{this.posX - 1, this.posY - 2});
+        result = new ArrayList<>();
+        int[][] deltas = {
+                {2, 1}, {2, -1}, {1, 2}, {-1, 2},
+                {-2, 1}, {-2, -1}, {1, -2}, {-1, -2}
+        };
 
-        result.removeIf(pos -> ! ((0 <= pos[0]) && (pos[0] < 8)) || ! ((0 <= pos[1]) && (pos[1] < 8)));
-
+        for (int[] d : deltas) {
+            int newX = this.posX + d[0];
+            int newY = this.posY + d[1];
+            if (0 <= newX && newX < 8 && 0 <= newY && newY < 8) {
+                result.add(new int[]{newX, newY});
+            }
+        }
         return result;
     }
 

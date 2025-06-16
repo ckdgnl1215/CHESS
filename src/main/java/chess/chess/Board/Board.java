@@ -9,6 +9,7 @@ public class Board {
     final static public BWPos[][] boardMatrix = new BWPos[8][8];
     public static BWPos garbagePos = new GarbagePos();
     public static BWPos nowFocused = garbagePos;
+    public TeamColor Teams;
     public Board(Pane mainPane) {
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
@@ -17,5 +18,6 @@ public class Board {
             }
         }
     }
+    public void spanTeams() {}
     public BWPos[][] getBoardMatrix() {return boardMatrix;}
 }

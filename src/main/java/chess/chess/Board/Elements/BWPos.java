@@ -37,8 +37,6 @@ public class BWPos extends ToggleButton {
             Board.nowFocused.setSelected(false);
             Board.nowFocused = this;
             for (int[] newone : this.piece.getAbleToMove()) {
-                System.out.print(newone[0]);
-                System.out.println(newone[1]);
                 if (Board.boardMatrix[newone[0]][newone[1]].getPiece() instanceof Garbage) {
                     Board.boardMatrix[newone[0]][newone[1]].onFocus();
                 }
@@ -83,7 +81,7 @@ public class BWPos extends ToggleButton {
         this.onFoused = false;
     }
 
-    public void setPiece(Piece piece) {
+    public BWPos setPiece(Piece piece) {
         this.piece = piece;
         Image image;
         ImageView imageView;
@@ -135,6 +133,7 @@ public class BWPos extends ToggleButton {
                 this.setGraphic(null);
                 break;
         }
+        return this;
     }
     public Piece getPiece() {return this.piece;}
 
