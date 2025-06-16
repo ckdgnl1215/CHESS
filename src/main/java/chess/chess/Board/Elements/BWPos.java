@@ -22,8 +22,6 @@ public class BWPos extends ToggleButton {
         this.selectedProperty().addListener((obs, oldValue, newValue) -> {
             if (newValue) {
                 onSelected();
-                System.out.print(this.xPos);
-                System.out.println(this.yPos);
             } else {
                 onDeselected();
             }
