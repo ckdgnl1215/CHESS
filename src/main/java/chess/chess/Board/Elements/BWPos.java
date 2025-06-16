@@ -6,16 +6,21 @@ import chess.chess.Board.Pieces.Piece;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 
 public class BWPos extends ToggleButton {
     private int xPos, yPos;
     public Garbage garbage = new Garbage();
     private Piece piece = garbage;
+    public String color;
     public boolean onFoused = false;
-    public BWPos(int xPos, int yPos, String style){
+    public boolean onCatched = false;
+    public BWPos(int xPos, int yPos, String style, String color){
         this.setText("");
         this.setLayoutX(xPos);
         this.setLayoutY(yPos);
+        this.color = color;
         this.getStyleClass().add(style);
         this.xPos = xPos / 80;
         this.yPos = yPos / 80;
@@ -31,14 +36,30 @@ public class BWPos extends ToggleButton {
     public BWPos() { }
 
     public void onSelected() {
-        if(!(this.piece instanceof Garbage)){
+        if(this.onFoused && !(this.piece instanceof Garbage)){
+            this.onFoused = false;
+        }
+        if(!(this.piece instanceof Garbage) && !(this.onFoused) && !(this.onCatched)){
             Board.nowFocused.setSelected(false);
             Board.nowFocused = this;
             for (int[] newone : this.piece.getAbleToMove()) {
                 if (Board.boardMatrix[newone[0]][newone[1]].getPiece() instanceof Garbage) {
                     Board.boardMatrix[newone[0]][newone[1]].onFocus();
                 }
+                else {
+                    Board.boardMatrix[newone[0]][newone[1]].onCatch();
+                }
             }
+        }
+        else if(!(this.piece instanceof Garbage) && !(this.onFoused) && (this.onCatched)){
+            System.out.println(1000);
+            BWPos now = Board.nowFocused;
+            this.setPiece(now.getPiece());
+            now.setSelected(false);
+            now.setPiece(now.garbage);
+            this.getPiece().setPos(this.xPos, this.yPos);
+            this.setSelected(false);
+
         }
         else if (this.onFoused) {
             BWPos now = Board.nowFocused;
@@ -47,9 +68,6 @@ public class BWPos extends ToggleButton {
             now.setPiece(now.garbage);
             this.getPiece().setPos(this.xPos, this.yPos);
             this.setSelected(false);
-        }
-        else if () {
-
         }
         else {
             System.out.println();
@@ -66,6 +84,11 @@ public class BWPos extends ToggleButton {
                 Board.boardMatrix[newone[0]][newone[1]].deFocus();
             }
         }
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                Board.boardMatrix[i][j].deCatch();
+            }
+        }
     }
 
     public void onFocus() {
@@ -80,6 +103,37 @@ public class BWPos extends ToggleButton {
     public void deFocus() {
         this.setGraphic(null);
         this.onFoused = false;
+    }
+
+    public void onCatch() {
+        this.setBorder(new Border(new BorderStroke(
+                Color.RED,                        // 테두리 색상
+                BorderStrokeStyle.SOLID,         // 테두리 스타일
+                new CornerRadii(5),              // 둥근 모서리
+                new BorderWidths(3)              // 테두리 두께
+        )));
+        this.onCatched = true;
+    }
+
+    public void deCatch() {
+        if(this.color.equals("white")) {
+            this.setBorder(new Border(new BorderStroke(
+                    Color.WHITE,                        // 테두리 색상
+                    BorderStrokeStyle.SOLID,         // 테두리 스타일
+                    new CornerRadii(5),              // 둥근 모서리
+                    new BorderWidths(3)              // 테두리 두께
+            )));
+        }
+        else if(this.color.equals("black")) {
+            this.setBorder(new Border(new BorderStroke(
+                    Color.BLACK,                        // 테두리 색상
+                    BorderStrokeStyle.SOLID,         // 테두리 스타일
+                    new CornerRadii(5),              // 둥근 모서리
+                    new BorderWidths(3)              // 테두리 두께
+            )));
+        }
+        System.out.println(1023741903);
+        this.onCatched = false;
     }
 
     public BWPos setPiece(Piece piece) {

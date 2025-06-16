@@ -13,7 +13,7 @@ public class Board {
     public Board(Pane mainPane) {
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
-                boardMatrix[i][j] = new BWPos(80 * i, 80 * j, (i + j) % 2 == 0 ? "blackbutton" : "whitebutton");
+                boardMatrix[i][j] = new BWPos(80 * i, 80 * j, (i + j) % 2 == 0 ? "blackbutton" : "whitebutton", (i + j) % 2 == 0 ? "black" : "white");
                 mainPane.getChildren().add(boardMatrix[i][j]);
             }
         }

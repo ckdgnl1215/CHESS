@@ -16,8 +16,8 @@ public class MyTeam extends BWTeam {
         this.teamPieces.setRook(BM[7][7].setPiece(new Rook().setPos(7, 7, teamColor)));
         this.teamPieces.setKnight(BM[1][7].setPiece(new Knight().setPos(1, 7, teamColor)));
         this.teamPieces.setKnight(BM[6][7].setPiece(new Knight().setPos(6, 7, teamColor)));
-        this.teamPieces.setBishop(BM[2][7].setPiece(new Bishop().setPos(0, 7, teamColor)));
-        this.teamPieces.setBishop(BM[5][7].setPiece(new Bishop().setPos(7, 7, teamColor)));
+        this.teamPieces.setBishop(BM[2][7].setPiece(new Bishop().setPos(2, 7, teamColor)));
+        this.teamPieces.setBishop(BM[5][7].setPiece(new Bishop().setPos(5, 7, teamColor)));
         if (teamColor.equals("white")) {
             this.teamPieces.setQueen(BM[3][7].setPiece(new Queen().setPos(3, 7, teamColor)));
             this.teamPieces.setKing(BM[4][7].setPiece(new King().setPos(4, 7, teamColor)));

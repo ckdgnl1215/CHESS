@@ -25,8 +25,12 @@ public class Queen extends Piece {
             if(newX > 7 || newY > 7 || newX < 0 || newY < 0) {
                 break;
             }
-            else if (BM[newX][newY].getPiece() instanceof Garbage || !BM[newX][newY].getPiece().getTeamColor().equals(this.TeamColor)) {
+            else if (BM[newX][newY].getPiece() instanceof Garbage) {
                 result.add(new int[]{newX, newY});
+            }
+            else if (!BM[newX][newY].getPiece().getTeamColor().equals(this.TeamColor)) {
+                result.add(new int[]{newX, newY});
+                break;
             }
             else {
                 break;
