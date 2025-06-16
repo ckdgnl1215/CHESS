@@ -14,7 +14,7 @@ public class BWPos extends ToggleButton {
     public Garbage garbage = new Garbage();
     private Piece piece = garbage;
     public String color;
-    public boolean onFoused = false;
+    public boolean onFocused = false;
     public boolean onCatched = false;
     public BWPos(int xPos, int yPos, String style, String color){
         this.setText("");
@@ -36,10 +36,10 @@ public class BWPos extends ToggleButton {
     public BWPos() { }
 
     public void onSelected() {
-        if(this.onFoused && !(this.piece instanceof Garbage)){
-            this.onFoused = false;
+        if(this.onFocused && !(this.piece instanceof Garbage)){
+            this.onFocused = false;
         }
-        if(!(this.piece instanceof Garbage) && !(this.onFoused) && !(this.onCatched)){
+        if(!(this.piece instanceof Garbage) && !(this.onFocused) && !(this.onCatched)){
             Board.nowFocused.setSelected(false);
             Board.nowFocused = this;
             for (int[] newone : this.piece.getAbleToMove()) {
@@ -51,7 +51,7 @@ public class BWPos extends ToggleButton {
                 }
             }
         }
-        else if(!(this.piece instanceof Garbage) && !(this.onFoused) && (this.onCatched)){
+        else if(!(this.piece instanceof Garbage) && !(this.onFocused) && (this.onCatched)){
             BWPos now = Board.nowFocused;
             this.setPiece(now.getPiece());
             now.setSelected(false);
@@ -60,7 +60,7 @@ public class BWPos extends ToggleButton {
             this.setSelected(false);
 
         }
-        else if (this.onFoused) {
+        else if (this.onFocused) {
             BWPos now = Board.nowFocused;
             this.setPiece(now.getPiece());
             now.setSelected(false);
@@ -95,12 +95,12 @@ public class BWPos extends ToggleButton {
         imageView.setFitWidth(25);
         imageView.setFitHeight(25);
         this.setGraphic(imageView);
-        this.onFoused = true;
+        this.onFocused = true;
     }
 
     public void deFocus() {
         this.setGraphic(null);
-        this.onFoused = false;
+        this.onFocused = false;
     }
 
     public void onCatch() {
@@ -187,8 +187,4 @@ public class BWPos extends ToggleButton {
         return this;
     }
     public Piece getPiece() {return this.piece;}
-
-    public int getxPos() {return xPos;}
-    public int getyPos() {return yPos;}
-
 }
