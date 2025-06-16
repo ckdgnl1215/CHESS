@@ -3,7 +3,9 @@ package chess.chess;
 import chess.chess.Board.Board;
 import chess.chess.Board.Elements.BWPos;
 import chess.chess.Board.Pieces.*;
+import chess.chess.Board.Team.BWTeam;
 import chess.chess.Board.Team.MyTeam;
+import chess.chess.Board.Team.OppositeTeam;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.Pane;
@@ -20,7 +22,7 @@ public class BoardController implements Initializable {
 
         BWPos[][] boardMatrix = chessBoard.getBoardMatrix();
 
-        MyTeam myTeam = new  MyTeam("black");
+        BWTeam myTeam = new OppositeTeam("black");
         myTeam.resetTeam();
         myTeam.spanTeam("white");
     }

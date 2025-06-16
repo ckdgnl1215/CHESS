@@ -5,7 +5,7 @@ import chess.chess.Board.Pieces.*;
 public class MyTeam extends BWTeam {
 
     public String teamColor;
-    public MyTeam(String teamColor) {spanTeam(teamColor);}
+    public MyTeam(String teamColor) {this.teamColor = teamColor; spanTeam(teamColor);}
 
     public void spanTeam(String teamColor) {
         for (int i = 0; i < 8; i++) {
