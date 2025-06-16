@@ -52,7 +52,6 @@ public class BWPos extends ToggleButton {
             }
         }
         else if(!(this.piece instanceof Garbage) && !(this.onFoused) && (this.onCatched)){
-            System.out.println(1000);
             BWPos now = Board.nowFocused;
             this.setPiece(now.getPiece());
             now.setSelected(false);
@@ -70,7 +69,6 @@ public class BWPos extends ToggleButton {
             this.setSelected(false);
         }
         else {
-            System.out.println();
             BWPos now = Board.nowFocused;
             now.setSelected(false);
             Board.nowFocused = this;
@@ -132,7 +130,6 @@ public class BWPos extends ToggleButton {
                     new BorderWidths(3)              // 테두리 두께
             )));
         }
-        System.out.println(1023741903);
         this.onCatched = false;
     }
 
@@ -184,7 +181,6 @@ public class BWPos extends ToggleButton {
                 this.setGraphic(imageView);
                 break;
             case "class chess.chess.Board.Pieces.Garbage":
-                System.out.println(3);
                 this.setGraphic(null);
                 break;
         }
