@@ -22,8 +22,7 @@ public class BoardController implements Initializable {
 
         BWPos[][] boardMatrix = chessBoard.getBoardMatrix();
 
-        BWTeam myTeam = new OppositeTeam("black");
-        myTeam.resetTeam();
-        myTeam.spanTeam("white");
+        BWTeam myTeam = new MyTeam("black");
+        BWTeam opposite = new OppositeTeam("white");
     }
 }

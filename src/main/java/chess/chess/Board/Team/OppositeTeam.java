@@ -10,7 +10,7 @@ public class OppositeTeam extends BWTeam
 
     public void spanTeam(String teamColor) {
         for (int i = 0; i < 8; i++) {
-            BM[i][6].setPiece(new Pawn().setPos(i, 1, teamColor));
+            BM[i][1].setPiece(new Pawn().setPos(i, 1, teamColor));
             this.teamPieces.setPawn(BM[i][1]);
         }
         this.teamPieces.setRook(BM[0][0].setPiece(new Rook().setPos(0, 0, teamColor)));
