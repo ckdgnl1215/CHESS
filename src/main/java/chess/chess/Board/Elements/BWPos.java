@@ -21,9 +21,11 @@ public class BWPos extends ToggleButton {
         this.yPos = yPos / 80;
         this.selectedProperty().addListener((obs, oldValue, newValue) -> {
             if (newValue) {
-                onSelected();   // 선택됨
+                onSelected();
+                System.out.print(this.xPos);
+                System.out.println(this.yPos);
             } else {
-                onDeselected(); // 해제됨
+                onDeselected();
             }
         });
     }
@@ -35,6 +37,8 @@ public class BWPos extends ToggleButton {
             Board.nowFocused.setSelected(false);
             Board.nowFocused = this;
             for (int[] newone : this.piece.getAbleToMove()) {
+                System.out.print(newone[0]);
+                System.out.println(newone[1]);
                 if (Board.boardMatrix[newone[0]][newone[1]].getPiece() instanceof Garbage) {
                     Board.boardMatrix[newone[0]][newone[1]].onFocus();
                 }

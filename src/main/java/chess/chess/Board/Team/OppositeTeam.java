@@ -1,11 +1,10 @@
 package chess.chess.Board.Team;
 
-public class OppositeTeam extends BWTeam {
+public class OppositeTeam //extends BWTeam
+{
 
-    public class OppositeTeam {
-        public Team teamcolor;
+    public Team teamcolor;
 
-        public OppositeTeam(Team team) {
-        }
+    public OppositeTeam(Team team) {
     }
 }
