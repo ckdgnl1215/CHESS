@@ -2,6 +2,8 @@ package chess.chess.Board;
 
 import chess.chess.Board.Elements.BWPos;
 import chess.chess.Board.Elements.GarbagePos;
+import chess.chess.Board.Team.MyTeam;
+import chess.chess.Board.Team.OppositeTeam;
 import javafx.scene.layout.Pane;
 
 public class Board {
@@ -18,6 +20,12 @@ public class Board {
             }
         }
     }
-    public void spanTeams() {}
+    public void spanTeams(String myColor) {
+        this.Teams = new TeamColor(new MyTeam(myColor.equals("black") ? "black" : "white"), new OppositeTeam(myColor.equals("black") ? "black" : "white"));
+    }
+    public void swapTeams() {
+        this.Teams.SwapColor();
+    }
+
     public BWPos[][] getBoardMatrix() {return boardMatrix;}
 }

@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public abstract class BWTeam {
 
-    protected Team teamColor;
+    protected String teamColor;
     protected TeamPieces teamPieces = new TeamPieces(new ArrayList<>(),
             new ArrayList<>(),
             new ArrayList<>(),
@@ -29,6 +29,6 @@ public abstract class BWTeam {
         teamPieces.king().clear();
     }
 
-    public Team getTeamColor() {return teamColor;}
+    public String getTeamColor() {return teamColor;}
 
 }

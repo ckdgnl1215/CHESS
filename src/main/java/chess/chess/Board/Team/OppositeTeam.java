@@ -2,10 +2,8 @@ package chess.chess.Board.Team;
 
 import chess.chess.Board.Pieces.*;
 
-public class OppositeTeam extends BWTeam
-{
+public class OppositeTeam extends BWTeam {
 
-    public String teamColor;
     public OppositeTeam(String teamColor) {this.teamColor = teamColor; spanTeam(teamColor);}
 
     public void spanTeam(String teamColor) {
