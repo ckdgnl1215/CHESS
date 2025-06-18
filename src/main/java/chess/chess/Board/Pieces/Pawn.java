@@ -24,4 +24,5 @@ public class Pawn extends Piece{
         result.removeIf(pos -> ! ((0 <= pos[0]) && (pos[0] < 8)) || ! ((0 <= pos[1]) && (pos[1] < 8)));
         return result;
     }
+    public Pawn setTeam(String team) {this.Team = team; return this;}
 }

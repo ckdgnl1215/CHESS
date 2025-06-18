@@ -33,4 +33,5 @@ public class Rook extends Piece{
             }
         }
     }
+    public Rook setTeam(String team) {this.Team = team; return this;}
 }

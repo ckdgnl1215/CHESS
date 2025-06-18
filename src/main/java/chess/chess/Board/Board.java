@@ -21,7 +21,7 @@ public class Board {
         }
     }
     public void spanTeams(String myColor) {
-        this.Teams = new TeamColor(new MyTeam(myColor.equals("black") ? "black" : "white"), new OppositeTeam(myColor.equals("black") ? "black" : "white"));
+        this.Teams = new TeamColor(new MyTeam(myColor.equals("black") ? "black" : "white"), new OppositeTeam(myColor.equals("white") ? "black" : "white"));
     }
     public void swapTeams() {
         this.Teams.SwapColor();
