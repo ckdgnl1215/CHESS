@@ -20,5 +20,5 @@ public class Knight extends Piece {
         }
         return result;
     }
-
+    public Knight setTeam(String team) {this.Team = team; return this;}
 }

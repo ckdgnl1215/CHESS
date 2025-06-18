@@ -37,4 +37,5 @@ public class Queen extends Piece {
             }
         }
     }
+    public Queen setTeam(String team) {this.Team = team; return this;}
 }

@@ -11,7 +11,7 @@ public abstract class Piece {
     protected String TeamColor;
     public String Team;
     public boolean Moved;
-    protected ArrayList<int[]> result = new ArrayList<int[]>();
+    protected ArrayList<int[]> result = new ArrayList<>();
 
     public Piece setPos(int xPos, int yPos) {
         this.posX = xPos;
@@ -30,7 +30,7 @@ public abstract class Piece {
 
     public String getTeamColor() {return this.TeamColor;}
 
-    public Piece setTeam(String team) {this.Team = team; return this;}
+    public abstract Piece setTeam(String team);
 
     public abstract ArrayList<int[]> getAbleToMove();
 }

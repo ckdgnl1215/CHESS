@@ -43,10 +43,15 @@ public class BWPos extends ToggleButton {
             Board.nowFocused.setSelected(false);
             Board.nowFocused = this;
             for (int[] newone : this.piece.getAbleToMove()) {
+                System.out.print(newone[0]);
+                System.out.println(newone[1]);
+                System.out.println(Board.boardMatrix[newone[0]][newone[1]].getPiece().getClass());
                 if (Board.boardMatrix[newone[0]][newone[1]].getPiece() instanceof Garbage) {
+                    System.out.println(1);
                     Board.boardMatrix[newone[0]][newone[1]].onFocus();
                 }
                 else {
+                    System.out.println(0);
                     Board.boardMatrix[newone[0]][newone[1]].onCatch();
                 }
             }
@@ -58,7 +63,6 @@ public class BWPos extends ToggleButton {
             now.setPiece(now.garbage);
             this.getPiece().setPos(this.xPos, this.yPos);
             this.setSelected(false);
-
         }
         else if (this.onFocused) {
             BWPos now = Board.nowFocused;

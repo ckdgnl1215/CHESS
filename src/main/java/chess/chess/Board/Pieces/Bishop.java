@@ -36,4 +36,5 @@ public class Bishop extends Piece{
             }
         }
     }
+    public Bishop setTeam(String team) {this.Team = team; return this;}
 }
