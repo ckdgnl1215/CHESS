@@ -17,5 +17,7 @@ public class BoardController implements Initializable {
         Board chessBoard = new Board(mainPane);
 
         BWPos[][] boardMatrix = chessBoard.getBoardMatrix();
+
+        chessBoard.spanTeams("black");
     }
 }
