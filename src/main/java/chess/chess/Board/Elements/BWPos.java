@@ -43,7 +43,7 @@ public class BWPos extends ToggleButton {
             Board.nowFocused.setSelected(false);
             Board.nowFocused = this;
             for (int[] newone : this.piece.getAbleToMove()) {
-                if (Board.boardMatrix[newone[0]][newone[1]].getPiece() instanceof Garbage) {
+                    if (Board.boardMatrix[newone[0]][newone[1]].getPiece() instanceof Garbage) {
                     Board.boardMatrix[newone[0]][newone[1]].onFocus();
                 }
                 else {
