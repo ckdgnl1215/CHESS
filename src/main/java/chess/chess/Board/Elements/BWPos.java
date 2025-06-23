@@ -43,16 +43,11 @@ public class BWPos extends ToggleButton {
             Board.nowFocused.setSelected(false);
             Board.nowFocused = this;
             for (int[] newone : this.piece.getAbleToMove()) {
-                System.out.print(newone[0]);
-                System.out.println(newone[1]);
-                System.out.println(Board.boardMatrix[newone[0]][newone[1]].getPiece().getClass());
                 if (Board.boardMatrix[newone[0]][newone[1]].getPiece() instanceof Garbage) {
-                    System.out.println(1);
-                    Board.boardMatrix[newone[0]][newone[1]].onFocus(this.piece.Team);
+                    Board.boardMatrix[newone[0]][newone[1]].onFocus();
                 }
                 else {
-                    System.out.println(0);
-                    Board.boardMatrix[newone[0]][newone[1]].onCatch(this.piece.Team);
+                    Board.boardMatrix[newone[0]][newone[1]].onCatch();
                 }
             }
         }
@@ -63,6 +58,7 @@ public class BWPos extends ToggleButton {
             now.setPiece(now.garbage);
             this.getPiece().setPos(this.xPos, this.yPos);
             this.setSelected(false);
+
         }
         else if (this.onFocused) {
             BWPos now = Board.nowFocused;
@@ -93,14 +89,12 @@ public class BWPos extends ToggleButton {
         }
     }
 
-    public void onFocus(String team) {
-        if (team.equals("my")) {
-            Image image = new Image(getClass().getResource("/image/piece.png").toString());
-            ImageView imageView = new ImageView(image);
-            imageView.setFitWidth(25);
-            imageView.setFitHeight(25);
-            this.setGraphic(imageView);
-        }
+    public void onFocus() {
+        Image image = new Image(getClass().getResource("/image/piece.png").toString());
+        ImageView imageView = new ImageView(image);
+        imageView.setFitWidth(25);
+        imageView.setFitHeight(25);
+        this.setGraphic(imageView);
         this.onFocused = true;
     }
 
@@ -109,15 +103,13 @@ public class BWPos extends ToggleButton {
         this.onFocused = false;
     }
 
-    public void onCatch(String team) {
-        if (team.equals("my")) {
-            this.setBorder(new Border(new BorderStroke(
-                    Color.RED,                        // 테두리 색상
-                    BorderStrokeStyle.SOLID,         // 테두리 스타일
-                    new CornerRadii(5),              // 둥근 모서리
-                    new BorderWidths(3)              // 테두리 두께
-            )));
-        }
+    public void onCatch() {
+        this.setBorder(new Border(new BorderStroke(
+                Color.RED,                        // 테두리 색상
+                BorderStrokeStyle.SOLID,         // 테두리 스타일
+                new CornerRadii(5),              // 둥근 모서리
+                new BorderWidths(3)              // 테두리 두께
+        )));
         this.onCatched = true;
     }
 
